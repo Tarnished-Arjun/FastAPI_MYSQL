@@ -27,7 +27,6 @@ def get_all_employees(db: Session):
 def get_employee(db: Session, emp_id: int):
     return db.query(Employee).filter(Employee.id == emp_id).first()
 
-
 def update_employee(db: Session, emp_id: int, name: str, email: str, dept_id: int):
     employee = db.query(Employee).filter(Employee.id == emp_id).first()
 
@@ -39,7 +38,6 @@ def update_employee(db: Session, emp_id: int, name: str, email: str, dept_id: in
         db.refresh(employee)
 
     return employee
-
 
 def delete_employee(db: Session, emp_id: int):
     employee = db.query(Employee).filter(Employee.id == emp_id).first()
